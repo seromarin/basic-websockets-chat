@@ -1,0 +1,9 @@
+.external {
+    color: red;
+    background-color: aqua;
+}
+
+.internal {
+    color: blue;
+    background-color: yellowgreen;
+}

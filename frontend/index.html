@@ -8,5 +8,20 @@
 </head>
 <body>
     <h1>Welcome to the websockets world!</h1>
+
+    <div id="messageList">
+
+    </div>
+
+    <form>
+        <div class="new-message">
+            <label for="message">New message:</label>
+            <input type="text" name="message" id="message">
+        </div>
+        <button type="submit" onclick="event.preventDefault()" id="sendMessageButton">ENVIAR</button>
+    </form>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
 </body>
 </html>
