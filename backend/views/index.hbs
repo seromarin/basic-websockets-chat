@@ -1,0 +1,17 @@
+<div class="container">
+    <img class="nyan" src="https://media.giphy.com/media/7lsw8RenVcjCM/source.gif" alt="Nyan Cat">
+    <div class="container__form">
+        <h1 class="title">Welcome user to the chat</h1>
+        <form class="form" method="POST" action="/newuser">
+            <div class="form__username">
+                <label for="username">New username:</label> <br>
+                <input type="text" name="username" id="username">
+            </div>
+            <button class="goToChat" type="submit">Enter to session</button>
+        </form>
+        {{!-- <a class="goToChat" href="/chat">Enter to session</a> --}}
+    </div>
+
+</div>
+
+<script src="index.js"></script>
