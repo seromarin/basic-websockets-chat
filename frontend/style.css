@@ -1,3 +1,69 @@
+/* GENERAL */
+
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 16px;
+    font-family: 'Public Sans', sans-serif;
+}
+
+/* LOGIN */
+.nyan {
+    width: 25rem;
+}
+
+.container {
+    background-color: rgb(180, 123, 245);
+    background-image: url('https://i.imgur.com/HLYE26o.png');
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container__form {
+    width: 30vw;
+    height: 30vh;
+    text-align: center;
+    border: 5px solid rgb(180, 0, 255);
+    background-color: rgb(250, 250, 250);
+    border-radius: 0.7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 2px 2px 5px 2px rgba(180, 0, 255, 0.1);
+}
+
+#username {
+    margin-top: 5px;
+}
+
+.title {
+    font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
+}
+
+.form {
+    margin: 15px auto;
+}
+
+.goToChat {
+    text-decoration: none;
+    color: aliceblue;
+    font-weight: 700;
+    background-color: rgb(180, 0, 255);
+    padding: 5px;
+    margin: 10px auto;
+    width: 40%;
+    border-radius: 0.2rem;
+    box-shadow: 2px 2px 2px 1px rgba(180, 0, 255, 0.15);
+}
+
+/* CHAT */
+
 .external {
     color: red;
     background-color: aqua;
@@ -6,4 +72,28 @@
 .internal {
     color: blue;
     background-color: yellowgreen;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 768px) {
+    
+    .container__form {
+        width: 50vw;
+        height: 35vh;
+    }
+    .goToChat {
+        width: 40%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    
+    .container__form {
+        width: 40vw;
+        height: 30vh;
+    }
+    .goToChat {
+        width: 40%;
+    }
 }

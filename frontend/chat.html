@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Websocket Example</title>
+    <link href="https://fonts.googleapis.com/css?family=Public+Sans:200,400,700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Welcome to the websockets world!</h1>
+
+    <div id="messageList">
+
+    </div>
+
+    <form>
+        <div class="new-message">
+            <label for="message">New message:</label>
+            <input type="text" name="message" id="message">
+        </div>
+        <button type="submit" onclick="event.preventDefault()" id="sendMessageButton">ENVIAR</button>
+    </form>
+
+    <script src="chat.js"></script>
+</body>
+</html>
