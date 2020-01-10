@@ -6,6 +6,8 @@ const bodyParser = require('body-parser')
 const Websocket = require('ws')
 const hbs = require('express-handlebars')
 const session = require('express-session')
+const cookieParser = require('cookie-parser')
+const cookie = require('cookie');
 const helmet = require('helmet');
 
 const server = require('http').createServer(app);
@@ -22,6 +24,7 @@ app.use(bodyParser.json());       // to support JSON-encoded bodies
 app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
   extended: true
 }));
+app.use(cookieParser());
 
 // Seguridad
 app.use(helmet());
@@ -30,7 +33,7 @@ app.disable('x-powered-by');
 app.use(session({
     secret: '123klj1n2312',
     name : 'sessionId',
-    cookie: { secure: true }
+    // cookie: { secure: false }
 }))
 
 // Template engine
@@ -57,20 +60,18 @@ app.post('/newuser', (req, res) => {
 })
 
 // Socket port
-wss.on('connection', (conn, req) => {
-    conn.send('something');
+wss.on('connection', (conn, req, client) => {
+    // conn.send('something');
+
+    console.log({req, conn, client});
 
     conn.on('message', function incomming(message) {
         console.log('received: %s', message);
-        console.log({req});
         const parsedData = JSON.parse(message)
         // if (typeof message)
         wss.clients.forEach(client => {
             if (client !== conn && client.readyState === Websocket.OPEN) {
-                client.send({
-                    user: 'username',
-                    message: parsedData.message
-                })
+                client.send(parsedData.message)
             }
         })
     });

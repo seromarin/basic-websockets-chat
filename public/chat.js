@@ -9,22 +9,13 @@ const messageList = document.getElementById('messageList')
 //  CONNECTION       //
 
 // Abrir la conexion
-ws.addEventListener('open', event => ws.send(JSON.stringify({ id: 1, message: 'Hola' })))
-
-
-//  HANDLE MESSAGES  //
-
-// Escuchar mensajes
-ws.addEventListener('message', event => {
-    console.log(`New message from server: ${event.data}`)
-    createNewMessageFront('external', event.data)
-    // const newWsEvent = document.createElement('p')
-    // newWsEvent.className = 'external'
-    // const msg = document.createTextNode(event.data)
-    // newWsEvent.appendChild(msg);
-    // messageList.appendChild(newWsEvent);
+ws.addEventListener('open', event => {
+    // Escuchar mensajes
+    ws.addEventListener('message', event => {
+        console.log(`New message from server: ${event.data}`)
+        createNewMessageFront('external', event.data)
+    })
 })
-
 
 //  SEND MESSAGES    //
 sendMessageButton.addEventListener('click', () => {
